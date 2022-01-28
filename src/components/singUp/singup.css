@@ -1,0 +1,23 @@
+.tamaño-form{
+    margin: 1%;
+    padding: 2%;
+    width: 40%;
+    position: relative;
+    left: 30%;
+    border-radius: 10px;
+    text-align: center;
+    background-color: burlywood;
+}
+
+@media only screen and (max-width: 720px) {
+    .tamaño-form{
+        margin: 1%;
+        padding: 2%;
+        width: 97%;
+        position: relative;
+        left: 0%;
+        border-radius: 10px;
+        text-align: center;
+        background-color: burlywood;
+    }
+}

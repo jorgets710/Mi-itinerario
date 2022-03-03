@@ -7,26 +7,25 @@ export default function Navbar(params) {
 
     return (
         <>
-            <ul className="nav nav-tabs justify-content-end">
+            <ul className="nav  justify-content-end colorNav">
                 <li className="nav-item">
-                    
-                    <a className="nav-link active" aria-current="page" href="#"><LinkRouter to="/">Home</LinkRouter></a>
+                    <LinkRouter className="nav-link  hover-underline-animation" aria-current="page" to="/">Home</LinkRouter>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#"><LinkRouter to="/cities">Cities</LinkRouter></a>
+                <LinkRouter className="hover-underline-animation nav-link" aria-current="page" to="/cities">Cities</LinkRouter>    
                 </li>
                 <li className="nav-item  ">
                     <a className="nav-link " data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><FaUserCircle className="logo-nav" /></a>
                     <ul className="dropdown-menu">
-                        <li><a className="dropdown-item" href="#"><LinkRouter to="/singUP">Sing Up</LinkRouter></a></li>
-                        <li><a className="dropdown-item" href="#"><LinkRouter to="/singIn">Sing In</LinkRouter></a></li>
+                        <li>
+                        <LinkRouter className="nav-link active hover-underline-animation" aria-current="page" to="/singUp">Sing Up</LinkRouter>
+                        </li>
+                        <li>
+                        <LinkRouter className="nav-link active hover-underline-animation" aria-current="page" to="/singIn">Sing In</LinkRouter>
+                        </li>
 
                     </ul>
                 </li>
-                
-                
-
-
             </ul>
 
         </>

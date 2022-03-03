@@ -1,9 +1,12 @@
+.tamañoImg{
+  height: 300px;
+}
 .hover-img {
     background-color: #000;
     color: #fff;
     display: inline-block;
     margin: 8px;
-    max-width: 320px;
+    max-width: 350px;
     min-width: 240px;
     overflow: hidden;
     position: relative;
@@ -74,3 +77,43 @@
   .hover-img:hover figcaption {
     opacity: 1;
   }
+
+
+  .tamañoCar{
+    width: 23rem;
+    background-color: #42F9FF !important;
+  }
+
+  /* css del acordion */
+  .item{
+    background-color:rgb(132, 132, 214);
+    margin-bottom: 5px;
+    padding: 10px 20px;
+}
+.title{
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+p{
+  padding-top: 15px;
+}
+.content{
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0,1,0,1);
+}
+.content.show{
+    height: auto;
+    max-height: 9999px;
+    transition: all 0.5s cubic-bezier(1,0,1,0);
+}
+
+.boton{
+  width: 100%;
+}
+.cardBody{
+  padding: 0px 8px 8px 8px;
+}

@@ -1,15 +1,57 @@
-import React from "react";
+import React, { useState } from 'react';
+import { Link as LinkRouter } from "react-router-dom";
 import "./carts.css";
 
-export default function carts(params) {
+export default function Carts(props) {
+    const [selected, setSelected] = useState(null)
+    const toggle = (i) => {
+        if (selected === i) {
+            return setSelected(null)
+        }
+        setSelected(i)
+    }
     return (
         <>
-            <figure class="hover-img">
-                <img src="https://picsum.photos/id/200/440/320.jpg" />
-                <figcaption>
-                    <h3>Lorem <br />Ipsum</h3>
-                </figcaption>
-            </figure>
+
+            {props.data.map((item, i) => {
+                return (
+                    <div className='mb-3'>
+                        <div className="card tamañoCar" >
+
+                            <figure className="hover-img">
+                            <img  className='tamañoImg' src={process.env.PUBLIC_URL +`/image/${item.image}`} alt="..." / >
+                            <figcaption>
+                                <h3>{item.name} <br/> {item.country}</h3>
+                           </figcaption>
+                        </figure> 
+                            <div className="cardBody">
+                                <div className="item">
+                                    <div className="title" onClick={() => toggle(i)}>
+                                        <p>Descripcion</p>
+                                        <span>{selected === i ? '-' : '+'}</span>
+                                    </div>
+
+                                    <div className={selected === i ? 'content show' : 'content'}>
+                                        {item.description}
+                                    </div>
+                                </div>
+
+                                <LinkRouter to={`/infoCities/${item._id}`} className="btn btn-primary boton">Ver Info</LinkRouter>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                )
+            }
+            )}
+
+
+
+
+
         </>
     )
 }

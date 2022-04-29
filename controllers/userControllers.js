@@ -61,7 +61,7 @@ const usersControllers = {
     nuevoUsuario: async (req, res) => {
         // destructuracion 
         const { firstname, lastname, email, password, from } = req.body.NuevoUsuario
-        console.log(req.body)
+        
         try {
             const usuariExiste = await user.findOne({ email })    //espera saber si el usuario este guardado en la base
 
@@ -173,7 +173,7 @@ const usersControllers = {
     },
     cerrarSesion: async (req, res) => {
         const email = req.body.email
-        console.log(req.body.email)
+        
 
         const users = await user.findOne({ email })
         users.connect = false

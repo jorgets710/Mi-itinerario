@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 export default function Facebook(params) {
 
     const responseFacebook = async (response) => {
-        console.log(response);
+        
 
         const NuevoUsuario = {
             firstname: response.name,
@@ -19,7 +19,7 @@ export default function Facebook(params) {
 
         await axios.post("http://localhost:4000/api/singup", { NuevoUsuario })
             .then(response => {
-                console.log(response.data.response)
+                
                 Swal.fire({
                     icon: 'success',
                     title: response.data.response,           

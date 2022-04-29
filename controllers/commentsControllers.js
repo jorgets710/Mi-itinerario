@@ -11,7 +11,7 @@ const commentController = {
     cargaCommet: async (req, res) => {
         // destructuracion 
         const { itinerario, mensaje, user } = req.body.dataCommet
-        console.log(req.body.dataCommet)
+        
         new Comments({
             itinerario: itinerario,
             user: user,
@@ -43,7 +43,7 @@ const commentController = {
         let comentario
         try {
             comentario= await Comments.findOneAndDelete({_id:id})
-            console.log(comentario);
+            
         } catch (error) {
             console.log(error);
         }
@@ -52,11 +52,11 @@ const commentController = {
     modificarComentario:async(req,res)=> {
         const  id  = req.params.id
         let newComment= {mensaje:req.body.data}
-        console.log(newComment);
+        
         let comentario
         try {
             comentario= await Comments.findOneAndUpdate({_id:id}, newComment)
-            console.log(comentario);
+            
         } catch (error) {
             console.log(error);
         }

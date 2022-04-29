@@ -44,10 +44,16 @@ export default function Likes(props) {
     
 
     return (
-        <div className="posicionLike">
-            {user? <div>
-                {likes.length}
-                <div>
+        <div>
+            {user? 
+            <div className="flexing-likes">
+
+                <div className="btn-likes-contador">
+                    
+                        {likes.length}
+                        </div>
+                
+                <div className="btn-likes">
                     {likes.includes(user.datosUser.id) ?
                         <button className="tamañoLike" onClick={likeDislike}> <FcLike></FcLike> </button> :
                         <button className="tamañoLike" onClick={likeDislike}>  <FcLikePlaceholder></FcLikePlaceholder></button>
@@ -55,9 +61,16 @@ export default function Likes(props) {
                     }
                 </div>
             </div>:
-            <div>
-                {likes.length}
-                <FcLikePlaceholder></FcLikePlaceholder>
+            <div className="flexing-likes">
+                <div className="btn-likes-contador">
+                   {likes.length} 
+                </div>
+                <div className="btn-likes">
+                <button className="tamañoLike" > <FcLikePlaceholder></FcLikePlaceholder></button>
+                    {/* <FcLikePlaceholder></FcLikePlaceholder> */}
+                </div>
+                
+                
             </div>
             }
         </div>

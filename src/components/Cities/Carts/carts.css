@@ -7,7 +7,7 @@
     color: #fff;
     display: inline-block;
     margin: 8px;
-    max-width: 350px;
+    max-width: 100%;
     min-width: 240px;
     overflow: hidden;
     position: relative;
@@ -81,7 +81,7 @@
 
 
   .tamañoCar{
-    width: 22rem;
+    width: 28rem;
     background-color: #34a0a4 !important;
     
   }
@@ -129,4 +129,14 @@ p{
 }
 .cardBody{
   padding: 0px 8px 8px 8px;
+
+}
+.flexing{
+  display: flex;
+}
+.flexing-boton1 {
+  width: 70%;
+}
+.flexing-boton2 {
+  width: 30%;
 }

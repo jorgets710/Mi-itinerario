@@ -6,7 +6,7 @@ import axios from "axios";
 import Likes from '../Like';
 
 export default function Carts(props) {
-    
+
     const [idItinerario, setidItinerario] = useState([])
 
     const [selected, setSelected] = useState(null)
@@ -26,16 +26,25 @@ export default function Carts(props) {
 
                             <figure className="hover-img">
                                 <img className='tamañoImg' src={process.env.PUBLIC_URL + `/image/${item.image}`} alt="..." />
-                                
+
                                 <figcaption>
                                     <h3>{item.name} <br /> {item.country}</h3>
 
                                 </figcaption>
                             </figure>
-                            <Likes city={item.name}></Likes>
-                        
+
+
                             <div className="cardBody">
-                                <LinkRouter to={`/infoCities/${item._id}`} key={item._id} className="btn btn boton">Ver Info</LinkRouter>
+                                <div className='flexing'>
+                                    <div className='flexing-boton1'>
+                                        <LinkRouter to={`/infoCities/${item._id}`} key={item._id} className="btn btn boton">Ver Info</LinkRouter>
+                                    </div>
+                                    <div className='flexing-boton2' >
+                                        <Likes city={item.name}></Likes>
+                                    </div>
+                                </div>
+
+
 
                                 <div className="item">
                                     <div className="title-city" onClick={() => toggle(i)}>

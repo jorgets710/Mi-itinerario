@@ -12,3 +12,18 @@
 width: 200%;
 height: 200%;
 }
+
+.btn-likes{
+    width: 50%;
+}
+.flexing-likes{
+    display: flex;
+    background-color: #0d6efd;
+    border: solid 1px;
+    border-radius: 5px;
+}
+
+    .btn-likes-contador{
+        width: 50%;
+        padding-top: 5px;
+    }

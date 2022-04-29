@@ -1,5 +1,6 @@
 .tamañoImg{
-  height: 300px;
+  width: 100%;
+  height: 200px;
 }
 .hover-img {
     background-color: #000;
@@ -11,7 +12,7 @@
     overflow: hidden;
     position: relative;
     text-align: center;
-    width: 100%;
+    width: 95%;
   }
   
   .hover-img * {
@@ -80,17 +81,20 @@
 
 
   .tamañoCar{
-    width: 23rem;
-    background-color: #42F9FF !important;
+    width: 22rem;
+    background-color: #34a0a4 !important;
+    
   }
 
   /* css del acordion */
   .item{
-    background-color:rgb(132, 132, 214);
-    margin-bottom: 5px;
-    padding: 10px 20px;
+    background-color:#34a0a4;
+    padding: 5px 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: #0d6efd !important ;
 }
-.title{
+.title-city{
     height: 20px;
     display: flex;
     justify-content: space-between;
@@ -104,15 +108,24 @@ p{
     max-height: 0;
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0,1,0,1);
+    font-size: small;
+    
 }
 .content.show{
     height: auto;
     max-height: 9999px;
     transition: all 0.5s cubic-bezier(1,0,1,0);
+    font-size: 14px;
 }
 
 .boton{
   width: 100%;
+    border-radius: 5px !important;
+    padding: 5px 10px !important;
+    border: solid 1px!important;
+
+    text-align: start !important;
+    background-color: #0d6efd !important ;
 }
 .cardBody{
   padding: 0px 8px 8px 8px;

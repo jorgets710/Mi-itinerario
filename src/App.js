@@ -16,10 +16,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 
+
+
+
 function App() {
 
-  // const [{ cities }, dispatch] = useStateValue()
-  const [{ itineraries }, dispatch] = useStateValue()
+  const [{ cities }, dispatch] = useStateValue()
+  // const [{ itineraries }, dispatch] = useStateValue()
   // axios.get("https://restcountries.com/v3.1/all")
   //   .then(response => {
   //     var busquedaPais = response.data.filter(pais => pais.name.common == "New Zealand")
@@ -27,9 +30,11 @@ function App() {
   //     var busquedaContienentes = response.data.filter(continente => continente.continents == "Europe")
   //     console.log(busquedaContienentes)
   //   })
+  
 
 
   useEffect(() => {
+
     axios.get("http://localhost:4000/api/datos")
       .then(response => {
         dispatch({
@@ -37,20 +42,38 @@ function App() {
           cities: response.data.response.cities
         })
       })
-    
-  })
+    // clase 17/03
 
+    if (localStorage.getItem("token") !== null) {
+      const token = localStorage.getItem("token")
+      axios.get("http://localhost:4000/api/signtoken", {
 
+        headers: { "Authorization": "Bearer " + token } // metodo de autorizacion/autoidentificacion standar 
+      })
+        .then(user => {
+          
+          if (user.data.sucess) {
+            
+            dispatch({
+              type: actionType.USER,
+              user: user.data
+            })
 
-  
+          } else {
+            localStorage.removeItem("token")
+          }
+        })
 
+    }
+
+  },[])
 
   return (
     <BrowserRouter>
 
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />}>
+        <Route path="/home" element={<Home />}>
         </Route>
 
         <Route path="/cities" element={<Cities />} >
@@ -67,6 +90,7 @@ function App() {
 
       </Routes>
       <Footer />
+      
 
     </BrowserRouter>
   );

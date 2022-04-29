@@ -1,3 +1,11 @@
-.fondo {
-    background-color: blue important!;
+.botongoogle{
+    width: 70% !important;
+    height: 50px;
+    
+    border-radius: 20px !important;
+    border: 0px;
+    color: aliceblue;
+}
+.botongoogle > div {
+    background : none !important;
 }

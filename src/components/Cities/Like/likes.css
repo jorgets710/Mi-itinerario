@@ -1,0 +1,14 @@
+.posicionLike{
+    position: absolute;
+    bottom: 15%;
+    right: 6%;
+}
+.tamañoLike{
+    background-color: transparent;
+    border: 1px;
+}
+
+.tamañoLike > svg {
+width: 200%;
+height: 200%;
+}

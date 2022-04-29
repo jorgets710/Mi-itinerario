@@ -1,36 +1,60 @@
-import React from "react";
+import React,{ useEffect, useState } from "react";
 import "./carousel.css"
-import Rond1 from "../../../assets/image/cataratas.jpg"
-import Rond2 from "../../../assets/image/greece.jpg"
-import Rond3 from "../../../assets/image/peru.jpg"
+
+import axios from "axios";
+
 
 
 export default function Carousel(params) {
 
+
+    const [randomcity, setRandomcity] = useState([])
+    let indiceRandom=Math.floor(Math.random()*(30-0+1)+0)
+    // const [{ cities }, dispatch] = useStateValue()
+
+    
+    // console.log(cities);
+    // console.log( cities[indiceRandom] );
+    // console.log( indiceRandom );
+
+    // const random = cities[indiceRandom]
+    
+    // console.log(random);
+    useEffect(()=>{
+        axios.get("http://localhost:4000/api/datos")
+      .then(response => {
+        
+        let city = response.data.response.cities
+        
+        setRandomcity(city[indiceRandom])
+
+        
+      })
+    },[])
+
+    
     return (
+        
         <>
-            <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
-                <div className="carousel-inner">
-                    <div className="carousel-item active" data-bs-interval="10000">
-                        <img src={Rond1} className="d-block w-100 img-carousel" alt="..."/>
-                    </div>
-                    <div className="carousel-item" data-bs-interval="2000">
-                        <img src={Rond2}className="d-block w-100 img-carousel" alt="..."/>
-                    </div>
-                    <div className="carousel-item">
-                        <img src={Rond3} className="d-block w-100 img-carousel" alt="..."/>
+            <div id="app">
+                <div className="title">
+                    <div className="title-inner">
+                        <div className="cafe">
+                            <div className="cafe-inner">Explora</div>
+                        </div>
+                        <div className="mozart">
+                            <div className="mozart-inner">el Mundo</div>
+                        </div>
                     </div>
                 </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Previous</span>
-                </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Next</span>
-                </button>
+
+                <div className="image">
+                    <img src={process.env.PUBLIC_URL + `/image/${randomcity.image}`} alt=''/>
+                </div>
             </div>
+
             
+
         </>
     )
 }

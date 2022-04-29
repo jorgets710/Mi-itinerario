@@ -1,0 +1,19 @@
+.masimg{
+    height: 400px;
+    width: 100%;
+}
+
+.titulocity{
+    color: #113f3f !important;
+    top: 0px;
+}
+.titulocity h1{
+    font-size: 100px;
+}
+
+@media only screen and (max-width: 720px){
+    .titulocity h1{
+        font-size: 50px;
+    }
+
+}
